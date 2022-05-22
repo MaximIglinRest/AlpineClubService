@@ -37,3 +37,13 @@ def first_migration():
 
 
 first_migration()
+
+def second_migration():
+    sql_query = """
+    ALTER TABLE district add name STRING;
+    """
+    cursor = get_db_cursor()
+    cursor.executescript(sql_query)
+    cursor.close()
+
+second_migration()
